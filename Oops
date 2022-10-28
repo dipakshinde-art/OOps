@@ -178,7 +178,6 @@ Vechile2.getBikeInfo()
 //   }
 // }
 
-
 // class Main{
 // 	public static void main(String args[]){
 //     Fuel disel = new Fuel("Disel");
@@ -194,6 +193,7 @@ Vechile2.getBikeInfo()
 //     p.getPersonInfo();
 // 	}
 // }
+
 
 
 
