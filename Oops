@@ -1,0 +1,199 @@
+// Use cases:
+
+// ·  Sourabh has two vehicle, one is honda accord car and another is Ducati Bike
+
+// ·  Honda accord car runs on fuel called diesel
+
+// ·  Ducati runs on fuel called petrol
+
+// ·  Ducati is used and imported vehicle
+
+// ·  Honda accord is new and made in India
+
+// javaScript implementation
+
+class Person {
+    constructor(name, len,arr) {
+        this.name = name;
+        this.len = len;
+        this.arr=arr
+    }
+    // Getter
+    get PersonInfo() {
+        return `${this.name} has ${this.len} Vehicle , one is ${this.arr[0]} and another is ${this.arr[1]}`
+    }
+
+
+}
+class Vechile {
+    constructor(MadeIn, Condition,brand) {
+        this.MadeIn = MadeIn;
+        this.Condition = Condition;
+        this.brand = brand;
+    }
+    getInfoOfVehicle() {
+
+        console.log (`${this.brand} is ${this.MadeIn} and ${this.Condition} `);
+    }
+}
+
+class Car extends Vechile {
+
+    constructor(brand, fuelType, MadeIn, Condition) {
+        super(MadeIn,Condition,brand);
+        this.brand = brand;
+        this.fuelType = fuelType;
+    }
+    getCartInfo() {
+        // prints the car info
+        super.getInfoOfVehicle(); // call to parent 
+        const disel = new Fuel(this.fuelType);
+
+        console.log (`${this.brand}Car runs on Fuel called ${disel.getFuelInfo()}`)
+
+    }
+}
+
+class Fuel {
+
+    constructor(fuelType) {
+        // console.log("full",fuelType);
+        this.fuelType = fuelType;
+    }
+    getFuelInfo() {
+        return this.fuelType; // prints whether the fuel is petrol or diesel
+    }
+}
+
+
+class Bike extends Vechile {
+    constructor(brand, fuelType, MadeIn, Condition) {
+        super(MadeIn, Condition);
+        this.brand = brand;
+        this.fuelType = fuelType;
+    }
+    getBikeInfo() {
+        // prints the bike info
+        super.getInfoOfVehicle(); // call to parent 
+
+        const Petrol = new Fuel(this.fuelType);
+        console.log (`${this.brand} runs on fuel called ${Petrol.getFuelInfo()}`);
+
+    }
+}
+
+
+//get user Info
+let arr = ["dukati", "honda"]
+const square = new Person("Saurabh", arr.length,arr);
+console.log(square.PersonInfo);
+
+const Vechile1 = new Car("Honda accord", "Desel", "Made in India", "new");
+Vechile1.getCartInfo()
+
+
+const Vechile2 = new Bike("Ducati", "Petrol","Imported", "Used");
+Vechile2.getBikeInfo()
+
+
+
+
+
+
+
+
+// java implementation of oops
+
+// import java.io.*;
+// import java.util.*;
+
+// class Person{
+// 	String name;
+// 	ArrayList<Vechile> V;
+// 	Person(String name,ArrayList<Vechile> V){
+// 	this.name = name;
+//     this.V=V;
+//   }
+ 
+//   public void getPersonInfo(){
+//     System.out.println(this.name+" has " + this.V.size() + " Vehicles "  );
+//     for(Vechile v: this.V){
+//         v.getvehicleInfo();
+//     }
+//   }
+// }
+
+// class Vechile{
+// 	String MadeIn;
+// 	String Condition;
+//   String brand ;
+//   Vechile(String MadeIn , String Condition ,String brand){
+//     this.MadeIn = MadeIn;
+//     this.Condition = Condition;
+//     this.brand = brand;
+//   }
+//   public void getvehicleInfo(){
+//     System.out.println( brand +" is " + MadeIn + " and " + Condition);
+//   }
+// }
+
+// class Fuel{
+// 	String fuelType;
+//   Fuel(String fuelType){
+//       this.fuelType = fuelType;
+//   }
+// 	public void getFuelInfo(){
+//     System.out.println(this.fuelType);
+//   }
+// }
+
+// class Car extends Vechile{
+// 	String brand;
+// 	Fuel fuelType;
+//   Car(String brand,Fuel fuelType, String MadeIn , String Condition){
+//     super(MadeIn , Condition ,brand);
+//     this.brand = brand;
+//     this.fuelType = fuelType;
+//   }
+// 	public void getvehicleInfo(){
+//     super.getvehicleInfo();
+//     System.out.print(this.brand + " runs on fuel called ");
+//     this.fuelType.getFuelInfo();
+//   }
+// }
+
+
+// class Bike extends Vechile{
+// 	String brand;
+// 	Fuel fuelType;
+//   Bike(String brand,Fuel fuelType, String MadeIn , String Condition){
+//       super(MadeIn,Condition,brand);
+//       this.brand=brand;
+//       this.fuelType=fuelType;
+//   }
+// 	public void getvehicleInfo(){
+//     super.getvehicleInfo();
+//     System.out.print(this.brand + " runs on fuel called ");
+//      this.fuelType.getFuelInfo();
+//   }
+// }
+
+
+// class Main{
+// 	public static void main(String args[]){
+//     Fuel disel = new Fuel("Disel");
+//     Fuel petrol = new Fuel("Petrol");
+// 	Vechile v1 = new Car("Honda accord",disel,"Made in India","Used");
+// 	Vechile v2 = new Bike("Ducati",petrol,"Imported","new");
+   
+   
+//     ArrayList<Vechile> vechiles=new ArrayList<>(); //collection 
+//     vechiles.add(v1);
+//     vechiles.add(v2);
+//     Person p = new Person("Saurabh",vechiles);
+//     p.getPersonInfo();
+// 	}
+// }
+
+
+
